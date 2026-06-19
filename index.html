@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paul Winick — Fractional Chief of Staff & Operator</title>
+    <meta name="description" content="Paul Winick embeds with founders as a fractional Chief of Staff, bringing operational clarity, execution, and AI-powered systems to growing businesses.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg:           #F7F2EB;
+            --bg-card:      #FDFAF6;
+            --bg-dark:      #201710;
+            --text-dark:    #201710;
+            --text-body:    #5A4838;
+            --text-muted:   #8A7868;
+            --accent:       #C4612C;
+            --accent-hover: #A84E22;
+            --accent-light: #F2E5D6;
+            --sage:         #637A56;
+            --sage-light:   #E8EFE4;
+            --sand:         #C8B89A;
+            --border:       #E4D8C8;
+            --white:        #FDFAF6;
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg);
+            color: var(--text-body);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'DM Serif Display', serif;
+            color: var(--text-dark);
+            line-height: 1.15;
+        }
+        a { color: inherit; text-decoration: none; }
+
+        /* ── NAV ── */
+        nav {
+            position: sticky; top: 0; z-index: 100;
+            background: rgba(247,242,235,0.96);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border);
+            padding: 0 2rem;
+        }
+        .nav-inner {
+            max-width: 1160px; margin: 0 auto;
+            display: flex; align-items: center; justify-content: space-between;
+            height: 64px;
+        }
+        .logo { display: flex; align-items: center; gap: 0.6rem; }
+        .logo-text {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.1rem; color: var(--text-dark);
+        }
+        .logo-text span { color: var(--accent); }
+        .nav-links { display: flex; align-items: center; gap: 1.75rem; list-style: none; }
+        .nav-links a { font-size: 0.875rem; font-weight: 500; color: var(--text-body); transition: color 0.2s; }
+        .nav-links a:hover { color: var(--accent); }
+        .nav-cta {
+            background: var(--accent) !important; color: white !important;
+            padding: 0.45rem 1.1rem; border-radius: 6px;
+            transition: background 0.2s !important;
+        }
+        .nav-cta:hover { background: var(--accent-hover) !important; }
+        .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+        .nav-toggle span { width: 22px; height: 2px; background: var(--text-dark); border-radius: 2px; transition: 0.3s; }
+
+        /* ── HERO ── */
+        .hero {
+            max-width: 1160px; margin: 0 auto;
+            padding: 6rem 2rem 5rem;
+            display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+        }
+        .hero-eyebrow {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em;
+            text-transform: uppercase; color: var(--accent); margin-bottom: 1.25rem;
+        }
+        .hero-eyebrow::before { content: ''; width: 22px; height: 2px; background: var(--accent); }
+        .hero h1 {
+            font-size: clamp(2.4rem, 4vw, 3.6rem);
+            margin-bottom: 1.25rem; color: var(--text-dark);
+        }
+        .hero h1 em { font-style: italic; color: var(--accent); }
+        .hero-sub {
+            font-size: 1.1rem; line-height: 1.75;
+            color: var(--text-body); margin-bottom: 2.25rem; max-width: 480px;
+        }
+        .hero-actions { display: flex; gap: 0.875rem; flex-wrap: wrap; }
+        .btn-primary {
+            background: var(--accent); color: white;
+            padding: 0.8rem 1.6rem; border-radius: 8px;
+            font-weight: 600; font-size: 0.925rem;
+            transition: background 0.2s, transform 0.15s;
+            display: inline-flex; align-items: center; gap: 0.4rem;
+        }
+        .btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); }
+        .btn-secondary {
+            background: transparent; color: var(--text-dark);
+            padding: 0.8rem 1.6rem; border-radius: 8px;
+            font-weight: 500; font-size: 0.925rem;
+            border: 1.5px solid var(--border);
+            transition: border-color 0.2s, background 0.2s;
+            display: inline-flex; align-items: center; gap: 0.4rem;
+        }
+        .btn-secondary:hover { border-color: var(--accent); background: var(--accent-light); }
+
+        /* Hero card stack */
+        .hero-visual { position: relative; height: 360px; }
+        .stat-card {
+            position: absolute;
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 14px; padding: 1.1rem 1.4rem;
+            box-shadow: 0 4px 24px rgba(32,23,16,0.07);
+        }
+        .stat-label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.2rem; }
+        .stat-value { font-family: 'DM Serif Display', serif; font-size: 1.7rem; color: var(--text-dark); line-height: 1.1; }
+        .stat-sub { font-size: 0.75rem; color: var(--text-muted); margin-top: 0.2rem; }
+        .card-1 { top: 0; left: 0; width: 190px; }
+        .card-2 { top: 70px; right: 0; width: 210px; }
+        .card-3 { bottom: 70px; left: 20px; width: 230px; }
+        .card-4 { bottom: 10px; right: 10px; width: 175px; }
+        .pulse { width: 7px; height: 7px; border-radius: 50%; background: var(--sage); display: inline-block; margin-right: 0.35rem; animation: blink 2s infinite; }
+        @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.35} }
+
+        /* ── SECTION BASICS ── */
+        section { padding: 5rem 2rem; }
+        .section-inner { max-width: 1160px; margin: 0 auto; }
+        .section-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.13em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.6rem; }
+        .section-title { font-size: clamp(1.7rem, 2.8vw, 2.4rem); margin-bottom: 0.875rem; }
+        .section-sub { font-size: 1rem; color: var(--text-body); max-width: 560px; line-height: 1.75; }
+        .section-header { margin-bottom: 3rem; }
+        .divider { width: 100%; height: 1px; background: var(--border); }
+
+        /* ── DESCRIPTOR STRIP ── */
+        .descriptors {
+            background: var(--bg-dark); padding: 3.5rem 2rem;
+        }
+        .descriptors-inner { max-width: 1160px; margin: 0 auto; }
+        .descriptors-eyebrow {
+            font-size: 0.7rem; font-weight: 600; letter-spacing: 0.13em;
+            text-transform: uppercase; color: var(--sand); margin-bottom: 2rem;
+        }
+        .descriptors-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; }
+        .descriptor-item {
+            padding: 1.25rem 1.5rem;
+            border-left: 1px solid rgba(255,255,255,0.08);
+        }
+        .descriptor-item:first-child { border-left: none; }
+        .descriptor-quote {
+            font-family: 'DM Serif Display', serif; font-style: italic;
+            font-size: 1rem; color: var(--white); line-height: 1.45;
+        }
+
+        /* ── ABOUT ── */
+        .about-grid { display: grid; grid-template-columns: 340px 1fr; gap: 5rem; align-items: start; }
+        .about-photo-wrap { position: relative; }
+        .about-photo {
+            width: 100%; aspect-ratio: 3/4; border-radius: 16px;
+            background: var(--accent-light); border: 1px solid var(--border);
+            display: flex; align-items: center; justify-content: center; overflow: hidden;
+        }
+        .about-photo img { width: 100%; height: 100%; object-fit: cover; }
+        .about-photo-placeholder { opacity: 0.3; }
+        .about-badge {
+            position: absolute; bottom: -1rem; right: -1rem;
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 12px; padding: 0.875rem 1.1rem;
+            box-shadow: 0 4px 20px rgba(32,23,16,0.1);
+            text-align: center;
+        }
+        .badge-num { font-family: 'DM Serif Display', serif; font-size: 1.8rem; color: var(--accent); line-height: 1; }
+        .badge-label { font-size: 0.72rem; color: var(--text-muted); font-weight: 500; margin-top: 0.15rem; }
+        .about-content p { font-size: 1rem; line-height: 1.8; margin-bottom: 1.1rem; }
+        .tag-row { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 1.75rem; }
+        .tag {
+            background: var(--accent-light); color: var(--accent);
+            padding: 0.3rem 0.8rem; border-radius: 100px;
+            font-size: 0.78rem; font-weight: 500;
+        }
+        .tag.sage { background: var(--sage-light); color: var(--sage); }
+
+        /* ── SERVICES ── */
+        .services-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.25rem; }
+        .service-card {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 16px; padding: 1.75rem;
+            transition: box-shadow 0.2s, transform 0.2s;
+        }
+        .service-card:hover { box-shadow: 0 8px 32px rgba(32,23,16,0.09); transform: translateY(-2px); }
+        .svc-icon {
+            width: 42px; height: 42px; border-radius: 10px;
+            background: var(--accent-light); display: flex; align-items: center; justify-content: center;
+            margin-bottom: 1.1rem;
+        }
+        .svc-icon svg { width: 20px; height: 20px; color: var(--accent); }
+        .service-card h3 { font-size: 1.05rem; margin-bottom: 0.6rem; }
+        .service-card p { font-size: 0.875rem; color: var(--text-muted); line-height: 1.65; }
+
+        /* ── AI SECTION ── */
+        #ai { background: var(--accent-light); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+        .ai-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+        .ai-content p { font-size: 1rem; line-height: 1.8; margin-bottom: 1.1rem; }
+        .chip-row { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 1.5rem; }
+        .chip {
+            display: inline-flex; align-items: center; gap: 0.35rem;
+            background: white; border: 1px solid var(--border);
+            color: var(--text-dark); padding: 0.35rem 0.8rem;
+            border-radius: 100px; font-size: 0.8rem; font-weight: 500;
+        }
+        .chip svg { width: 13px; height: 13px; }
+        .code-window {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 14px; overflow: hidden;
+            box-shadow: 0 8px 40px rgba(32,23,16,0.09);
+        }
+        .code-titlebar {
+            background: var(--bg-dark); padding: 0.75rem 1.1rem;
+            display: flex; align-items: center; gap: 0.4rem;
+        }
+        .dot { width: 10px; height: 10px; border-radius: 50%; }
+        .dot.r { background: #ff5f57; } .dot.y { background: #febc2e; } .dot.g { background: #28c840; }
+        .code-filename { font-size: 0.72rem; color: rgba(255,255,255,0.35); font-family: monospace; margin-left: 0.5rem; }
+        .code-body { padding: 1.4rem 1.5rem; font-family: 'SF Mono','Fira Code',monospace; font-size: 0.8rem; line-height: 1.85; color: var(--text-body); }
+        .cc { color: var(--text-muted); }
+        .ck { color: var(--accent); }
+        .cv { color: var(--sage); }
+
+        /* ── CASE STUDY ── */
+        .cs-card {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 20px; overflow: hidden;
+            box-shadow: 0 4px 28px rgba(32,23,16,0.07);
+        }
+        .cs-head {
+            background: var(--bg-dark); padding: 2.5rem 3rem;
+            display: flex; align-items: flex-start; justify-content: space-between; gap: 2rem;
+        }
+        .cs-pill {
+            display: inline-block; background: rgba(196,97,44,0.2); color: #E0895A;
+            padding: 0.25rem 0.8rem; border-radius: 100px;
+            font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em;
+            text-transform: uppercase; margin-bottom: 0.875rem;
+        }
+        .cs-head h3 { font-size: 1.5rem; color: var(--white); max-width: 460px; }
+        .cs-head-sub { color: var(--sand); font-size: 0.875rem; margin-top: 0.6rem; line-height: 1.6; max-width: 460px; }
+        .cs-meta { text-align: right; flex-shrink: 0; }
+        .cs-meta-item { margin-bottom: 0.875rem; }
+        .cs-meta-label { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--sand); font-weight: 600; }
+        .cs-meta-value { font-size: 0.875rem; color: var(--white); margin-top: 0.1rem; }
+        .cs-body { padding: 2.5rem 3rem; }
+        .cs-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.25rem; margin-bottom: 2.25rem; }
+        .cs-stat {
+            text-align: center; padding: 1.4rem 1rem;
+            background: var(--bg); border-radius: 12px; border: 1px solid var(--border);
+        }
+        .cs-stat-num { font-family: 'DM Serif Display', serif; font-size: 2rem; color: var(--accent); line-height: 1; margin-bottom: 0.35rem; }
+        .cs-stat-label { font-size: 0.8rem; color: var(--text-muted); line-height: 1.4; }
+        .cs-divider { height: 1px; background: var(--border); margin: 2rem 0; }
+        .mini-label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.875rem; }
+        .cs-built-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 0.6rem; }
+        .cs-built-item { display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.875rem; }
+        .cs-built-item::before { content: '→'; color: var(--accent); flex-shrink: 0; margin-top: 0.1rem; }
+        .cs-quote {
+            background: var(--accent-light); border-left: 3px solid var(--accent);
+            padding: 1.25rem 1.5rem; border-radius: 0 8px 8px 0;
+            font-style: italic; font-size: 0.95rem; line-height: 1.7;
+            color: var(--text-body); margin-top: 2rem;
+        }
+        .cs-toggle-btn {
+            margin-top: 1.75rem; background: none;
+            border: 1.5px solid var(--border); color: var(--text-dark);
+            padding: 0.65rem 1.35rem; border-radius: 8px;
+            cursor: pointer; font-family: 'DM Sans', sans-serif;
+            font-size: 0.85rem; font-weight: 500;
+            transition: all 0.2s;
+            display: flex; align-items: center; gap: 0.4rem;
+        }
+        .cs-toggle-btn:hover { border-color: var(--accent); color: var(--accent); }
+        .cs-toggle-btn svg { transition: transform 0.2s; }
+        .cs-full { display: none; margin-top: 2rem; }
+        .cs-full.open { display: block; }
+        .cs-full p { font-size: 0.925rem; line-height: 1.8; margin-bottom: 1rem; }
+        .cs-tech { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1.25rem; }
+
+        /* ── TESTIMONIALS ── */
+        .testi-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.25rem; }
+        .testi-card {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 16px; padding: 1.75rem;
+        }
+        .stars { color: var(--accent); letter-spacing: 0.05em; margin-bottom: 0.875rem; font-size: 0.9rem; }
+        .testi-card blockquote { font-size: 0.925rem; line-height: 1.75; font-style: italic; color: var(--text-body); margin-bottom: 1.5rem; }
+        .testi-author { display: flex; align-items: center; gap: 0.7rem; }
+        .avatar {
+            width: 38px; height: 38px; border-radius: 50%;
+            background: var(--accent-light); flex-shrink: 0;
+            display: flex; align-items: center; justify-content: center;
+            font-family: 'DM Serif Display', serif; font-size: 0.95rem; color: var(--accent);
+        }
+        .author-name { font-weight: 600; font-size: 0.85rem; color: var(--text-dark); }
+        .author-role { font-size: 0.75rem; color: var(--text-muted); }
+
+        /* ── FAQ ── */
+        .faq-grid {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 1px; background: var(--border);
+            border: 1px solid var(--border); border-radius: 16px; overflow: hidden;
+        }
+        .faq-item { background: var(--bg-card); padding: 1.75rem 2rem; cursor: pointer; transition: background 0.15s; }
+        .faq-item:hover { background: var(--bg); }
+        .faq-q {
+            font-family: 'DM Serif Display', serif; font-size: 1rem;
+            color: var(--text-dark);
+            display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem;
+        }
+        .faq-icon { color: var(--accent); font-size: 1.3rem; line-height: 1; flex-shrink: 0; transition: transform 0.2s; }
+        .faq-a { font-size: 0.875rem; line-height: 1.7; color: var(--text-muted); display: none; margin-top: 0.75rem; }
+        .faq-item.open .faq-a { display: block; }
+        .faq-item.open .faq-icon { transform: rotate(45deg); }
+
+        /* ── CONTACT ── */
+        #contact { background: var(--bg-dark); }
+        .contact-grid { max-width: 1160px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+        .contact-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.13em; text-transform: uppercase; color: #E0895A; margin-bottom: 0.6rem; }
+        .contact-title { font-size: clamp(1.7rem, 2.5vw, 2.2rem); color: var(--white); margin-bottom: 1.1rem; }
+        .contact-sub { color: var(--sand); font-size: 1rem; line-height: 1.75; margin-bottom: 2rem; }
+        .contact-methods { display: flex; flex-direction: column; gap: 0.875rem; }
+        .contact-link {
+            display: flex; align-items: center; gap: 0.75rem;
+            color: var(--white); font-size: 0.925rem; transition: color 0.2s;
+        }
+        .contact-link:hover { color: #E0895A; }
+        .contact-icon {
+            width: 38px; height: 38px; border-radius: 8px;
+            background: rgba(255,255,255,0.07);
+            display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+        }
+        .contact-icon svg { width: 16px; height: 16px; }
+        .contact-form {
+            background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px; padding: 2rem;
+        }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.875rem; }
+        .form-group { margin-bottom: 1.1rem; }
+        .form-group label { display: block; font-size: 0.78rem; font-weight: 500; color: var(--sand); margin-bottom: 0.35rem; letter-spacing: 0.04em; }
+        .form-group input, .form-group textarea {
+            width: 100%; background: rgba(255,255,255,0.07);
+            border: 1px solid rgba(255,255,255,0.11); border-radius: 8px;
+            padding: 0.7rem 0.875rem; color: var(--white);
+            font-family: 'DM Sans', sans-serif; font-size: 0.875rem;
+            outline: none; transition: border-color 0.2s;
+        }
+        .form-group input:focus, .form-group textarea:focus { border-color: rgba(196,97,44,0.5); }
+        .form-group input::placeholder, .form-group textarea::placeholder { color: rgba(255,255,255,0.2); }
+        .form-group textarea { height: 110px; resize: vertical; }
+        .form-submit {
+            width: 100%; justify-content: center;
+            background: var(--accent); color: white;
+            padding: 0.8rem; border-radius: 8px;
+            font-weight: 600; font-size: 0.925rem;
+            border: none; cursor: pointer; font-family: 'DM Sans', sans-serif;
+            display: flex; align-items: center; gap: 0.4rem;
+            transition: background 0.2s;
+        }
+        .form-submit:hover { background: var(--accent-hover); }
+
+        /* ── FOOTER ── */
+        footer {
+            background: var(--bg-dark); border-top: 1px solid rgba(255,255,255,0.07);
+            padding: 1.75rem 2rem;
+        }
+        .footer-inner {
+            max-width: 1160px; margin: 0 auto;
+            display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+        }
+        .footer-logo { display: flex; align-items: center; gap: 0.5rem; }
+        .footer-wordmark { font-family: 'DM Serif Display', serif; font-size: 0.975rem; color: var(--white); }
+        .footer-copy { font-size: 0.75rem; color: var(--sand); }
+        .footer-links { display: flex; gap: 1.5rem; }
+        .footer-links a { font-size: 0.78rem; color: var(--sand); transition: color 0.2s; }
+        .footer-links a:hover { color: var(--white); }
+
+        /* ── REVEAL ANIMATION ── */
+        .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.55s ease, transform 0.55s ease; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+
+        /* ── MOBILE ── */
+        @media (max-width: 780px) {
+            .hero { grid-template-columns: 1fr; padding: 3.5rem 1.5rem 3rem; gap: 0; }
+            .hero-visual { display: none; }
+            .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .about-photo-wrap { display: none; }
+            .descriptors-grid { grid-template-columns: 1fr 1fr; }
+            .descriptor-item { border-left: none; border-top: 1px solid rgba(255,255,255,0.08); }
+            .descriptor-item:nth-child(-n+2) { border-top: none; }
+            .services-grid { grid-template-columns: 1fr; }
+            .ai-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+            .cs-head { flex-direction: column; padding: 1.5rem; }
+            .cs-meta { text-align: left; }
+            .cs-stats { grid-template-columns: 1fr; }
+            .cs-built-grid { grid-template-columns: 1fr; }
+            .cs-body { padding: 1.5rem; }
+            .testi-grid { grid-template-columns: 1fr; }
+            .faq-grid { grid-template-columns: 1fr; }
+            .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+            .footer-inner { flex-direction: column; text-align: center; }
+            .nav-links { display: none; }
+            .nav-toggle { display: flex; }
+            section { padding: 3.5rem 1.5rem; }
+        }
+        @media (max-width: 780px) {
+            .nav-links.open {
+                display: flex; flex-direction: column;
+                position: absolute; top: 64px; left: 0; right: 0;
+                background: var(--bg); border-bottom: 1px solid var(--border);
+                padding: 1.25rem 1.5rem; gap: 1rem; z-index: 99;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav>
+    <div class="nav-inner">
+        <a href="#" class="logo">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                <!-- Three connected nodes — systems & operations -->
+                <circle cx="7"  cy="16" r="5" fill="#C4612C"/>
+                <circle cx="27" cy="8"  r="4" fill="#C4612C" opacity="0.55"/>
+                <circle cx="27" cy="24" r="4" fill="#C4612C" opacity="0.55"/>
+                <line x1="7" y1="16" x2="27" y2="8"  stroke="#C4612C" stroke-width="1.5" opacity="0.35"/>
+                <line x1="7" y1="16" x2="27" y2="24" stroke="#C4612C" stroke-width="1.5" opacity="0.35"/>
+                <line x1="27" y1="8" x2="27" y2="24" stroke="#C4612C" stroke-width="1.5" opacity="0.35"/>
+            </svg>
+            <span class="logo-text">Paul <span>Winick</span></span>
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">What I Do</a></li>
+            <li><a href="#ai">AI & Systems</a></li>
+            <li><a href="#case-study">Case Study</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#contact" class="nav-cta">Let's Talk</a></li>
+        </ul>
+        <div class="nav-toggle" id="navToggle" onclick="toggleNav()">
+            <span></span><span></span><span></span>
+        </div>
+    </div>
+</nav>
+
+<!-- ══ HERO ══ -->
+<div class="hero">
+    <div class="hero-left">
+        <div class="hero-eyebrow">Fractional Chief of Staff · Dubai, UAE</div>
+        <h1>The operator <em>founders</em> build with.</h1>
+        <p class="hero-sub">I embed with business owners to bring operational clarity, execution rigour, and AI-powered systems to businesses that have outgrown how they currently work.</p>
+        <div class="hero-actions">
+            <a href="#contact" class="btn-primary">Let's talk →</a>
+            <a href="#services" class="btn-secondary">How I work</a>
+        </div>
+    </div>
+    <div class="hero-visual">
+        <div class="stat-card card-1 reveal">
+            <div class="stat-label">Pipeline visibility</div>
+            <div class="stat-value">100%</div>
+            <div class="stat-sub">live ops tracking</div>
+        </div>
+        <div class="stat-card card-2 reveal">
+            <div class="stat-label">Time to build</div>
+            <div class="stat-value">Weeks</div>
+            <div class="stat-sub">not months</div>
+        </div>
+        <div class="stat-card card-3 reveal">
+            <div class="stat-label"><span class="pulse"></span>Active system</div>
+            <div class="stat-value" style="font-size:1.15rem; margin-top:0.2rem;">Quote in &lt;60s</div>
+            <div class="stat-sub">generated from browser</div>
+        </div>
+        <div class="stat-card card-4 reveal">
+            <div class="stat-label">Agency cost</div>
+            <div class="stat-value">£0</div>
+            <div class="stat-sub">built with AI</div>
+        </div>
+    </div>
+</div>
+
+<!-- ══ DESCRIPTOR STRIP ══ -->
+<div class="descriptors">
+    <div class="descriptors-inner">
+        <div class="descriptors-eyebrow">How founders describe working with me</div>
+        <div class="descriptors-grid">
+            <div class="descriptor-item"><div class="descriptor-quote">"The operator behind the founder"</div></div>
+            <div class="descriptor-item"><div class="descriptor-quote">"The stabilising force"</div></div>
+            <div class="descriptor-item"><div class="descriptor-quote">"The one who remembers everything"</div></div>
+            <div class="descriptor-item"><div class="descriptor-quote">"The one who gets things done"</div></div>
+        </div>
+    </div>
+</div>
+
+<!-- ══ ABOUT ══ -->
+<section id="about">
+    <div class="section-inner">
+        <div class="about-grid">
+            <div class="about-photo-wrap reveal">
+                <div class="about-photo">
+                    <img src="paul.jpg" alt="Paul Winick" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
+                </div>
+                <div class="about-badge">
+                    <div class="badge-num">15+</div>
+                    <div class="badge-label">Years in ops & strategy</div>
+                </div>
+            </div>
+            <div class="about-content reveal">
+                <div class="section-label">About</div>
+                <h2 class="section-title">I've sat inside businesses. I know what holds them back.</h2>
+                <p>I'm Paul — a fractional Chief of Staff and operator based in Dubai. I work with founders and business owners who are growing fast but whose internal operations haven't kept pace. Things feel held together with spreadsheets, email threads, and institutional memory that lives in one or two people's heads.</p>
+                <p>My job is to change that. I embed as an operator — not a consultant who leaves a slide deck. I identify the friction, build the systems, and drive the execution. I stay until things are running properly.</p>
+                <p>What's changed recently is the toolkit. I now use AI — specifically Claude Code — to build bespoke operational tools in weeks that would previously have required a development agency, months of work, and a significant budget. I've done it for a client. I can do it for you.</p>
+                <div class="tag-row">
+                    <span class="tag">Operations</span>
+                    <span class="tag">Execution</span>
+                    <span class="tag">Systems Design</span>
+                    <span class="tag">Founder Support</span>
+                    <span class="tag sage">AI-Assisted Development</span>
+                    <span class="tag sage">Claude Code</span>
+                    <span class="tag">Dubai, UAE</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══ SERVICES ══ -->
+<section id="services">
+    <div class="section-inner">
+        <div class="section-header">
+            <div class="section-label">What I Do</div>
+            <h2 class="section-title">Built around you — not a job description.</h2>
+            <p class="section-sub">Most engagements combine several of these areas. Everything is scoped around what the business actually needs.</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card reveal">
+                <div class="svc-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+                        <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                    </svg>
+                </div>
+                <h3>Execution & Accountability</h3>
+                <p>I close loops. Tasks get done, not discussed. I track what's moving and what's stalling, and make sure the right things happen in the right order.</p>
+            </div>
+            <div class="service-card reveal">
+                <div class="svc-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+                        <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/>
+                        <rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>
+                    </svg>
+                </div>
+                <h3>Operations & Structure</h3>
+                <p>Processes, SOPs, reporting, and the operational backbone your business needs to scale without everything running through the founder.</p>
+            </div>
+            <div class="service-card reveal">
+                <div class="svc-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+                        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                    </svg>
+                </div>
+                <h3>AI-Powered Systems</h3>
+                <p>Bespoke operational tools — pipelines, dashboards, compliance trackers, document generators — built in weeks using AI, at a fraction of traditional development cost.</p>
+            </div>
+            <div class="service-card reveal">
+                <div class="svc-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+                        <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+                    </svg>
+                </div>
+                <h3>Fixing Bottlenecks</h3>
+                <p>I find what's blocking growth — whether that's a process, a system gap, or how decisions get made — and I fix it rather than document it.</p>
+            </div>
+            <div class="service-card reveal">
+                <div class="svc-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                        <circle cx="9" cy="7" r="4"/>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+                    </svg>
+                </div>
+                <h3>Special Projects</h3>
+                <p>Office moves, fundraising support, regulatory submissions, product launches — large cross-functional projects that fall outside normal operational rhythms.</p>
+            </div>
+            <div class="service-card reveal">
+                <div class="svc-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+                    </svg>
+                </div>
+                <h3>Founder Leverage</h3>
+                <p>I take the operations off your plate so you can spend your time on what only you can do — customers, product, strategy, and growth.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══ AI & SYSTEMS ══ -->
+<section id="ai">
+    <div class="section-inner">
+        <div class="ai-grid">
+            <div class="ai-content reveal">
+                <div class="section-label">AI & Systems</div>
+                <h2 class="section-title">The barrier to bespoke software just dropped to near zero.</h2>
+                <p>Working with Claude Code — Anthropic's AI development tool — I can design, build, and deploy custom operational software that would previously have required a development agency, a lengthy requirements phase, and a significant budget.</p>
+                <p>What I bring that AI alone can't provide: the operational judgement to know what to build. Understanding the workflow deeply enough to scope the right solution. Knowing when something is good enough — and when it needs more.</p>
+                <p>The technology is not the hard part. The hard part is understanding the business.</p>
+                <div class="chip-row">
+                    <span class="chip">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2zm0 0v20M2 12h20"/></svg>
+                        Claude Code
+                    </span>
+                    <span class="chip">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg>
+                        Airtable
+                    </span>
+                    <span class="chip">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 15v4c0 1.1.9 2 2 2h14a2 2 0 0 0 2-2v-4M17 9l-5 5-5-5M12 14V2"/></svg>
+                        Cloudflare
+                    </span>
+                    <span class="chip">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                        HTML / JS
+                    </span>
+                </div>
+            </div>
+            <div class="code-window reveal">
+                <div class="code-titlebar">
+                    <div class="dot r"></div><div class="dot y"></div><div class="dot g"></div>
+                    <span class="code-filename">portal / dashboard.js</span>
+                </div>
+                <div class="code-body">
+<span class="cc">// mBELLAb Operations Portal</span><br>
+<span class="cc">// Built with Claude Code · 4 weeks · £0 dev cost</span><br>
+<br>
+<span class="ck">const</span> portal = {<br>
+&nbsp;&nbsp;<span class="ck">pipeline</span>:    <span class="cv">'live KPI tracking'</span>,<br>
+&nbsp;&nbsp;<span class="ck">quoteGen</span>:    <span class="cv">'&lt; 60 seconds'</span>,<br>
+&nbsp;&nbsp;<span class="ck">entities</span>:    <span class="cv">3</span>,<br>
+&nbsp;&nbsp;<span class="ck">compliance</span>:  <span class="cv">'automated alerts'</span>,<br>
+&nbsp;&nbsp;<span class="ck">access</span>:      <span class="cv">'role-based login'</span>,<br>
+&nbsp;&nbsp;<span class="ck">agency</span>:      <span class="cv">false</span>,<br>
+&nbsp;&nbsp;<span class="ck">itDept</span>:      <span class="cv">false</span>,<br>
+}<br>
+<br>
+<span class="cc">// No dev team. No IT dept.</span><br>
+<span class="cc">// Operational judgement + AI.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ══ CASE STUDY ══ -->
+<section id="case-study">
+    <div class="section-inner">
+        <div class="section-header">
+            <div class="section-label">Case Study</div>
+            <h2 class="section-title">What this looks like in practice.</h2>
+            <p class="section-sub">A real engagement — from problem through to production.</p>
+        </div>
+        <div class="cs-card reveal">
+            <div class="cs-head">
+                <div>
+                    <span class="cs-pill">AI-Assisted Development</span>
+                    <h3>Building an Operations Portal Without a Development Team</h3>
+                    <p class="cs-head-sub">How a UAE engineering business replaced spreadsheets and email threads with a custom-built operations hub — using AI as the development engine.</p>
+                </div>
+                <div class="cs-meta">
+                    <div class="cs-meta-item">
+                        <div class="cs-meta-label">Client</div>
+                        <div class="cs-meta-value">mBELLAb Power Solutions</div>
+                    </div>
+                    <div class="cs-meta-item">
+                        <div class="cs-meta-label">Sector</div>
+                        <div class="cs-meta-value">Engineering · UAE</div>
+                    </div>
+                    <div class="cs-meta-item">
+                        <div class="cs-meta-label">Timeline</div>
+                        <div class="cs-meta-value">Weeks, not months</div>
+                    </div>
+                    <div class="cs-meta-item">
+                        <div class="cs-meta-label">External dev cost</div>
+                        <div class="cs-meta-value">£0</div>
+                    </div>
+                </div>
+            </div>
+            <div class="cs-body">
+                <div class="cs-stats">
+                    <div class="cs-stat">
+                        <div class="cs-stat-num">3</div>
+                        <div class="cs-stat-label">Companies unified on one platform</div>
+                    </div>
+                    <div class="cs-stat">
+                        <div class="cs-stat-num">&lt;60s</div>
+                        <div class="cs-stat-label">Quote letter generated from browser</div>
+                    </div>
+                    <div class="cs-stat">
+                        <div class="cs-stat-num">£0</div>
+                        <div class="cs-stat-label">External development cost</div>
+                    </div>
+                </div>
+
+                <div class="cs-divider"></div>
+
+                <div style="margin-bottom:2rem;">
+                    <div class="mini-label">The Problem</div>
+                    <p style="font-size:0.95rem;line-height:1.8;">mBELLAb PS needed proper pipeline visibility — opportunities were tracked inconsistently, quotes were filed loosely in Word documents, and activity notes lived in people's heads. Across three sister companies sharing founders and staff, compliance obligations like trade licences, visas, and insurance renewals were falling through the cracks.</p>
+                </div>
+
+                <div>
+                    <div class="mini-label">What Was Built</div>
+                    <div class="cs-built-grid">
+                        <div class="cs-built-item">Pipeline tracking with live KPIs, deadline alerts, and activity logging</div>
+                        <div class="cs-built-item">Quote letter generation — branded Word doc in under 60 seconds</div>
+                        <div class="cs-built-item">Cross-entity renewals register (licences, memberships, insurance)</div>
+                        <div class="cs-built-item">Employee document tracker with passport expiry alerts</div>
+                        <div class="cs-built-item">Supplier & contractor directories linked to SharePoint</div>
+                        <div class="cs-built-item">Role-based access — engineers see what they need, admins see everything</div>
+                        <div class="cs-built-item">ISO quality objectives linked to specific opportunities</div>
+                        <div class="cs-built-item">Live dashboard with finance tab and recent activity feed</div>
+                    </div>
+                </div>
+
+                <div class="cs-quote">
+                    "The technology lowers the barrier to entry dramatically. The strategic lens is what makes it useful. Understanding the business, identifying the friction, scoping the right solution — that judgement is not something AI provides on its own."
+                </div>
+
+                <button class="cs-toggle-btn" id="csBtn" onclick="toggleCS()">
+                    <span id="csBtnText">Read the full case study</span>
+                    <svg id="csBtnIcon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                </button>
+
+                <div class="cs-full" id="csFull">
+                    <div class="cs-divider"></div>
+                    <div class="mini-label">The Business</div>
+                    <p>mBELLAb Power Solutions is a specialist engineering and project management firm operating across the UAE, managing high-value tenders and subcontracting work in the power distribution sector. Projects span RTU supply and commissioning, ADMS integration, and infrastructure delivery for clients including TAQA Distribution and Abu Dhabi Municipality.</p>
+                    <p>The business is founder-led, with two principals who also run two sister companies: mBELLAb Business Services & Administration, a management consultancy, and Sentinel Capital Ltd (SENCAP), a DFSA-regulated investment advisory firm based in DIFC, Dubai. Three businesses, two founders, a lean team — and a lot of moving parts.</p>
+                    <div class="cs-divider"></div>
+                    <div class="mini-label">The Approach</div>
+                    <p>Rather than engaging a development agency or waiting for a budget cycle, the decision was made to build something immediately using AI-assisted development. Working iteratively with Claude (Anthropic), a fully functional web-based operations portal was designed, built, and refined — without writing a single line of code manually.</p>
+                    <p>The approach: describe the problem and what good looks like; iterate rapidly on working prototypes; test in the real environment; report what was broken or needed changing; repeat. The result is a production-ready, browser-based application connected to Airtable as its data backend, secured through a Cloudflare Worker proxy, with role-based login — no installation, no app store, no IT department.</p>
+                    <div class="cs-divider"></div>
+                    <div class="mini-label">What This Demonstrates</div>
+                    <p>Most growing businesses run on operational infrastructure that was never really designed — it accumulated. Spreadsheets became the system of record. Email became the project management tool. Institutional knowledge lives in one or two people's heads. The cost of fixing this used to be high enough that most businesses just lived with it. That's no longer true.</p>
+                    <div class="cs-tech">
+                        <span class="chip">Claude Code (Anthropic)</span>
+                        <span class="chip">Airtable</span>
+                        <span class="chip">Cloudflare Workers</span>
+                        <span class="chip">HTML / CSS / JS</span>
+                        <span class="chip">Role-based Auth</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══ TESTIMONIALS ══ -->
+<section id="testimonials">
+    <div class="section-inner">
+        <div class="section-header">
+            <div class="section-label">Testimonials</div>
+            <h2 class="section-title">What founders say.</h2>
+        </div>
+        <div class="testi-grid">
+            <div class="testi-card reveal">
+                <div class="stars">★★★★★</div>
+                <blockquote>"Paul gave the business greater structure, focus, and follow-through, helping me prioritise better and ensure momentum."</blockquote>
+                <div class="testi-author">
+                    <div class="avatar">U</div>
+                    <div>
+                        <div class="author-name">Ugo Chukwu</div>
+                        <div class="author-role">CEO · Ohere Technologies Ltd</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testi-card reveal">
+                <div class="stars">★★★★★</div>
+                <blockquote>"Paul helped turn priorities into action and gave me headspace to concentrate on bigger picture strategy."</blockquote>
+                <div class="testi-author">
+                    <div class="avatar">A</div>
+                    <div>
+                        <div class="author-name">Arvind Krishnan</div>
+                        <div class="author-role">Founder & CEO · ThinkingWealth</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testi-card reveal">
+                <div class="stars">★★★★★</div>
+                <blockquote>"He brought order and focus to our investor communications during a critical period."</blockquote>
+                <div class="testi-author">
+                    <div class="avatar">T</div>
+                    <div>
+                        <div class="author-name">Tudor Holotescu</div>
+                        <div class="author-role">Founder · HeadStarter.org</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══ FAQ ══ -->
+<section id="faq">
+    <div class="section-inner">
+        <div class="section-header">
+            <div class="section-label">FAQ</div>
+            <h2 class="section-title">Common questions.</h2>
+        </div>
+        <div class="faq-grid">
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-q">What does "fractional" actually mean?<span class="faq-icon">+</span></div>
+                <div class="faq-a">You get a senior operator embedded in your business — without the cost of a full-time hire. Engagements are typically 2–4 days per week, structured around what the business needs rather than a fixed job description.</div>
+            </div>
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-q">How is this different from a management consultant?<span class="faq-icon">+</span></div>
+                <div class="faq-a">Consultants diagnose and recommend. I diagnose and do. I don't leave a slide deck — I stay until the systems are built and the team is running them. The output is operational change, not a report.</div>
+            </div>
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-q">What kind of businesses do you work with?<span class="faq-icon">+</span></div>
+                <div class="faq-a">Founder-led and owner-managed businesses, typically between £1M and £20M revenue, that are growing but haven't built the operational infrastructure to support that growth. I've worked across fintech, SaaS, engineering, professional services, and investment management.</div>
+            </div>
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-q">Do we need a technical team to use AI-built tools?<span class="faq-icon">+</span></div>
+                <div class="faq-a">No. Everything I build runs in a browser with no installation required. Your team logs in and uses it. The technical complexity is entirely behind the scenes — your job is to tell me what you need.</div>
+            </div>
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-q">How quickly can you start?<span class="faq-icon">+</span></div>
+                <div class="faq-a">Usually within 2–3 weeks of our initial conversation, subject to availability. The first step is a diagnostic call — no commitment required — to establish fit and what the right engagement looks like.</div>
+            </div>
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-q">What does an engagement cost?<span class="faq-icon">+</span></div>
+                <div class="faq-a">Engagements are structured as a monthly retainer based on days per week committed. Pricing is discussed directly and depends on scope and duration. The right starting point is a conversation.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ══ CONTACT ══ -->
+<section id="contact">
+    <div class="contact-grid">
+        <div>
+            <div class="contact-label">Contact</div>
+            <h2 class="contact-title">Let's talk about your business.</h2>
+            <p class="contact-sub">Whether your operational infrastructure is starting to creak, or you're curious about what AI-assisted systems could do for your team — I'd be glad to have that conversation.</p>
+            <div class="contact-methods">
+                <a href="mailto:paul@winick.co.uk" class="contact-link">
+                    <div class="contact-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.75"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    </div>
+                    paul@winick.co.uk
+                </a>
+                <a href="tel:+971585050186" class="contact-link">
+                    <div class="contact-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.75"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.44 2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6 6l.96-.86a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    </div>
+                    +971 58 505 0186
+                </a>
+                <a href="https://linkedin.com/in/paul-winick-702406b/" target="_blank" rel="noopener" class="contact-link">
+                    <div class="contact-icon">
+                        <svg viewBox="0 0 24 24" fill="white"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+                    </div>
+                    LinkedIn
+                </a>
+            </div>
+        </div>
+        <div class="contact-form">
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Your name</label>
+                    <input type="text" id="fname" placeholder="First name">
+                </div>
+                <div class="form-group">
+                    <label>Company</label>
+                    <input type="text" id="fcompany" placeholder="Your business">
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" id="femail" placeholder="you@company.com">
+            </div>
+            <div class="form-group">
+                <label>What are you working on?</label>
+                <textarea id="fmsg" placeholder="Tell me a little about where your business is and what you're trying to solve..."></textarea>
+            </div>
+            <button class="form-submit" onclick="submitForm()">Send message →</button>
+        </div>
+    </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+    <div class="footer-inner">
+        <div class="footer-logo">
+            <svg width="24" height="24" viewBox="0 0 32 32" fill="none">
+                <circle cx="7"  cy="16" r="5" fill="#C4612C"/>
+                <circle cx="27" cy="8"  r="4" fill="#C4612C" opacity="0.55"/>
+                <circle cx="27" cy="24" r="4" fill="#C4612C" opacity="0.55"/>
+                <line x1="7" y1="16" x2="27" y2="8"  stroke="#C4612C" stroke-width="1.5" opacity="0.35"/>
+                <line x1="7" y1="16" x2="27" y2="24" stroke="#C4612C" stroke-width="1.5" opacity="0.35"/>
+                <line x1="27" y1="8" x2="27" y2="24" stroke="#C4612C" stroke-width="1.5" opacity="0.35"/>
+            </svg>
+            <span class="footer-wordmark">Paul Winick</span>
+        </div>
+        <div class="footer-copy">© 2026 Paul Winick · Dubai, UAE</div>
+        <div class="footer-links">
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#case-study">Case Study</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Mobile nav
+    function toggleNav() {
+        document.getElementById('navLinks').classList.toggle('open');
+    }
+
+    // FAQ accordion
+    function toggleFaq(el) {
+        el.classList.toggle('open');
+    }
+
+    // Case study expand
+    function toggleCS() {
+        const full = document.getElementById('csFull');
+        const txt  = document.getElementById('csBtnText');
+        const icon = document.getElementById('csBtnIcon');
+        const open = full.classList.toggle('open');
+        txt.textContent = open ? 'Hide full case study' : 'Read the full case study';
+        icon.style.transform = open ? 'rotate(180deg)' : '';
+    }
+
+    // Contact form — opens mailto as fallback; swap for Formspree endpoint if needed
+    function submitForm() {
+        const name    = document.getElementById('fname').value.trim();
+        const company = document.getElementById('fcompany').value.trim();
+        const email   = document.getElementById('femail').value.trim();
+        const msg     = document.getElementById('fmsg').value.trim();
+        if (!name || !email || !msg) { alert('Please fill in your name, email, and message.'); return; }
+        const subject = encodeURIComponent('Enquiry from ' + name + (company ? ' (' + company + ')' : ''));
+        const body    = encodeURIComponent(msg + '\n\nFrom: ' + name + '\nEmail: ' + email + (company ? '\nCompany: ' + company : ''));
+        window.location.href = 'mailto:paul@winick.co.uk?subject=' + subject + '&body=' + body;
+    }
+
+    // Smooth-scroll with nav offset
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', e => {
+            const id = a.getAttribute('href').slice(1);
+            if (!id) return;
+            e.preventDefault();
+            const el = document.getElementById(id);
+            if (el) window.scrollTo({ top: el.getBoundingClientRect().top + scrollY - 76, behavior: 'smooth' });
+            document.getElementById('navLinks').classList.remove('open');
+        });
+    });
+
+    // Scroll reveal
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
