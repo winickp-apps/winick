@@ -1,9 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" rx="8" fill="#F7F2EB"/>
-  <circle cx="7"  cy="16" r="5" fill="#C4612C"/>
-  <circle cx="27" cy="8"  r="4" fill="#C4612C" opacity="0.55"/>
-  <circle cx="27" cy="24" r="4" fill="#C4612C" opacity="0.55"/>
-  <line x1="7" y1="16" x2="27" y2="8"  stroke="#C4612C" stroke-width="1.5" opacity="0.4"/>
-  <line x1="7" y1="16" x2="27" y2="24" stroke="#C4612C" stroke-width="1.5" opacity="0.4"/>
-  <line x1="27" y1="8" x2="27" y2="24" stroke="#C4612C" stroke-width="1.5" opacity="0.4"/>
+  <rect width="32" height="32" fill="#0A0A0A"/>
+  <!-- W letterform approximating the WINICK logo style: wide, geometric -->
+  <polyline points="4,8 8.5,22 12,13 16,20 19.5,13 23.5,22 28,8"
+    fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linejoin="miter" stroke-linecap="butt"/>
+  <!-- Cyan underline matching logo -->
+  <line x1="4" y1="26" x2="11" y2="26" stroke="#00B4D8" stroke-width="2"/>
 </svg>
