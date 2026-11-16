@@ -215,9 +215,20 @@
             font-size: 0.85rem; color: var(--text-muted); padding-top: 0.3rem;
         }
         .svc-body h3 {
-            font-size: 1.3rem; font-weight: 500; margin-bottom: 0.6rem;
+            font-size: 1.3rem; font-weight: 500;
         }
         .svc-body p { font-size: 0.875rem; color: var(--text-muted); line-height: 1.8; }
+        .service-item { cursor: pointer; }
+        .svc-h3-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: 0.6rem; }
+        .svc-h3-row h3 { transition: color 0.15s; }
+        .service-item:hover .svc-h3-row h3 { color: var(--accent); }
+        .svc-toggle-icon { color: var(--text-muted); font-size: 1.1rem; line-height: 1; transition: transform 0.2s; flex-shrink: 0; margin-top: 0.35rem; }
+        .service-item.open .svc-toggle-icon { transform: rotate(45deg); }
+        .svc-detail { display: none; margin-top: 1.1rem; padding-top: 1.1rem; border-top: 1px solid var(--border); }
+        .service-item.open .svc-detail { display: block; }
+        .svc-detail ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.45rem; }
+        .svc-detail li { font-size: 0.8rem; color: var(--text-mid); line-height: 1.65; padding-left: 1rem; position: relative; }
+        .svc-detail li::before { content: '—'; position: absolute; left: 0; color: var(--accent); font-size: 0.75rem; }
 
         /* ── AI SECTION ── */
         #ai { background: var(--bg); }
@@ -589,46 +600,118 @@
             <p class="section-sub">Most engagements combine several of these areas. Everything is scoped around what the business actually needs.</p>
         </div>
         <div class="services-list">
-            <div class="service-item reveal">
+            <div class="service-item reveal" onclick="toggleService(this)">
                 <div class="svc-num">01</div>
                 <div class="svc-body">
-                    <h3>Execution & Accountability</h3>
+                    <div class="svc-h3-row">
+                        <h3>Execution & Accountability</h3>
+                        <span class="svc-toggle-icon">+</span>
+                    </div>
                     <p>I close loops. Tasks get done, not discussed. I track what's moving and what's stalling, and make sure the right things happen in the right order.</p>
+                    <div class="svc-detail">
+                        <ul>
+                            <li>Weekly ops reviews: priorities set, blockers surfaced, decisions made</li>
+                            <li>Task tracking across the team so nothing slips between cracks</li>
+                            <li>Action registers the founder can check without being in every meeting</li>
+                            <li>Escalation filters: the right things reach you, everything else gets handled</li>
+                            <li>Follow-through on commitments, internal and external</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-            <div class="service-item reveal">
+            <div class="service-item reveal" onclick="toggleService(this)">
                 <div class="svc-num">02</div>
                 <div class="svc-body">
-                    <h3>Operations & Structure</h3>
+                    <div class="svc-h3-row">
+                        <h3>Operations & Structure</h3>
+                        <span class="svc-toggle-icon">+</span>
+                    </div>
                     <p>Processes, SOPs, reporting, and the operational backbone your business needs to scale without everything running through the founder.</p>
+                    <div class="svc-detail">
+                        <ul>
+                            <li>SOPs built for the people who actually use them, not for a shelf</li>
+                            <li>Reporting frameworks that give you visibility without requiring your constant presence</li>
+                            <li>Hiring and onboarding processes that don't start from scratch each time</li>
+                            <li>Cross-team handoffs with clear ownership and no dropped balls</li>
+                            <li>Systems designed to run when you're not in the room</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-            <div class="service-item reveal">
+            <div class="service-item reveal" onclick="toggleService(this)">
                 <div class="svc-num">03</div>
                 <div class="svc-body">
-                    <h3>AI-Powered Systems</h3>
+                    <div class="svc-h3-row">
+                        <h3>AI-Powered Systems</h3>
+                        <span class="svc-toggle-icon">+</span>
+                    </div>
                     <p>Bespoke operational tools: pipelines, dashboards, compliance trackers, document generators, built in weeks using AI at a fraction of traditional development cost.</p>
+                    <div class="svc-detail">
+                        <ul>
+                            <li>Pipeline trackers, compliance registers, and dashboards built in weeks</li>
+                            <li>Document generation: branded quotes, proposals, and reports in under 60 seconds</li>
+                            <li>Role-based access so each person sees what they need and nothing else</li>
+                            <li>Connected to your existing tools: SharePoint, Google Workspace, email</li>
+                            <li>No development team, no ongoing maintenance contract, no IT department required</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-            <div class="service-item reveal">
+            <div class="service-item reveal" onclick="toggleService(this)">
                 <div class="svc-num">04</div>
                 <div class="svc-body">
-                    <h3>Fixing Bottlenecks</h3>
+                    <div class="svc-h3-row">
+                        <h3>Fixing Bottlenecks</h3>
+                        <span class="svc-toggle-icon">+</span>
+                    </div>
                     <p>I find what's blocking growth, whether that's a process, a system gap, or how decisions get made, and I fix it rather than document it.</p>
+                    <div class="svc-detail">
+                        <ul>
+                            <li>Operational audit: map what's actually happening, not what's supposed to be</li>
+                            <li>Identify the constraint causing most of the downstream friction</li>
+                            <li>Fix the root cause, not the symptom</li>
+                            <li>Prioritise by business impact, not loudest voice in the room</li>
+                            <li>Hand the fix to the team, not back to the founder</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-            <div class="service-item reveal">
+            <div class="service-item reveal" onclick="toggleService(this)">
                 <div class="svc-num">05</div>
                 <div class="svc-body">
-                    <h3>Special Projects</h3>
+                    <div class="svc-h3-row">
+                        <h3>Special Projects</h3>
+                        <span class="svc-toggle-icon">+</span>
+                    </div>
                     <p>Office moves, fundraising support, regulatory submissions, product launches: large cross-functional projects that fall outside normal operational rhythms.</p>
+                    <div class="svc-detail">
+                        <ul>
+                            <li>End-to-end ownership: scoping, planning, delivery, closure</li>
+                            <li>Stakeholder coordination across internal teams and external partners</li>
+                            <li>Regulatory submissions, compliance deadlines, licence renewals</li>
+                            <li>Product launches from go/no-go through to market</li>
+                            <li>Office moves, restructures, new market entries</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-            <div class="service-item reveal">
+            <div class="service-item reveal" onclick="toggleService(this)">
                 <div class="svc-num">06</div>
                 <div class="svc-body">
-                    <h3>Founder Leverage</h3>
+                    <div class="svc-h3-row">
+                        <h3>Founder Leverage</h3>
+                        <span class="svc-toggle-icon">+</span>
+                    </div>
                     <p>I take the operations off your plate so you can spend your time on what only you can do: customers, product, strategy, and growth.</p>
+                    <div class="svc-detail">
+                        <ul>
+                            <li>Weekly priorities aligned to what actually moves the business forward</li>
+                            <li>Meetings that need you in the room: attended. Ones that don't: handled</li>
+                            <li>Communication cadences so the team knows what's happening without chasing you</li>
+                            <li>Space protected for the work only a founder can do</li>
+                            <li>Operational continuity when you need to be heads-down or away</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -918,6 +1001,10 @@
 <script>
     function toggleNav() {
         document.getElementById('navLinks').classList.toggle('open');
+    }
+
+    function toggleService(el) {
+        el.classList.toggle('open');
     }
 
     function toggleFaq(el) {
