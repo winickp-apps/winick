@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio — WINICK</title>
-    <meta name="robots" content="noindex, nofollow">
+    <meta name="description" content="Real work. Real clients. A portfolio of AI-built tools and Chief of Staff engagements by Paul Winick.">
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="apple-touch-icon" href="favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -38,471 +38,442 @@
         }
         a { color: inherit; text-decoration: none; }
 
-        /* ── TOP BAR ── */
-        .topbar {
+        /* ── NAV ── */
+        nav {
+            position: sticky; top: 0; z-index: 100;
+            background: rgba(255,255,255,0.97);
+            backdrop-filter: blur(6px);
             border-bottom: 1px solid var(--border);
             padding: 0 2rem;
         }
-        .topbar-inner {
+        .nav-inner {
             max-width: 1200px; margin: 0 auto;
             display: flex; align-items: center; justify-content: space-between;
-            height: 64px;
+            height: 72px;
         }
-        .topbar-logo { height: 36px; width: auto; display: block; }
-        .topbar-back {
+        .logo { display: flex; align-items: center; }
+        .logo-lockup { display: flex; flex-direction: column; gap: 0.2rem; }
+        .logo-img { height: 44px; width: auto; display: block; }
+        .logo-sub {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.48rem; font-weight: 400;
+            letter-spacing: 0.13em; text-transform: uppercase;
+            color: var(--text-muted); line-height: 1;
+        }
+        .logo-sub .logo-pipe { color: var(--accent); }
+        .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+        .nav-links a {
             font-size: 0.72rem; font-weight: 400;
-            letter-spacing: 0.08em; text-transform: uppercase;
+            letter-spacing: 0.1em; text-transform: uppercase;
             color: var(--text-muted); transition: color 0.15s;
-            display: flex; align-items: center; gap: 0.4rem;
         }
-        .topbar-back:hover { color: var(--text); }
-        .topbar-back svg { flex-shrink: 0; }
+        .nav-links a:hover { color: var(--text); }
+        .nav-links a.active { color: var(--text); }
+        .nav-cta { color: var(--text) !important; }
+        .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+        .nav-toggle span { width: 22px; height: 1.5px; background: var(--text); }
 
-        /* ── PAGE HERO ── */
-        .page-hero {
-            padding: 5rem 2rem 4rem;
-            border-bottom: 1px solid var(--border);
-        }
-        .page-hero-inner { max-width: 1200px; margin: 0 auto; }
+        /* ── SECTION BASICS ── */
+        section { padding: 6rem 2rem; }
+        .section-inner { max-width: 1200px; margin: 0 auto; }
         .section-label {
-            font-size: 0.65rem; font-weight: 400;
-            letter-spacing: 0.14em; text-transform: uppercase;
-            color: var(--text-muted); margin-bottom: 1.25rem;
+            font-size: 0.62rem; font-weight: 400; letter-spacing: 0.18em;
+            text-transform: uppercase; color: var(--accent); margin-bottom: 1rem;
         }
-        .page-hero h1 {
-            font-size: clamp(2.5rem, 5vw, 3.75rem);
-            font-weight: 400; margin-bottom: 1.25rem;
-            max-width: 700px;
+        .section-title {
+            font-size: clamp(1.9rem, 3.2vw, 2.9rem);
+            font-weight: 400; margin-bottom: 1rem;
         }
-        .page-hero p {
-            font-size: 1rem; color: var(--text-mid);
-            line-height: 1.9; max-width: 600px;
-        }
+        .section-header { margin-bottom: 4rem; }
 
-        /* ── SHARED ── */
-        .section-inner { max-width: 1200px; margin: 0 auto; padding: 5rem 2rem; }
+        /* ── CHIP ── */
         .chip {
             border: 1px solid var(--border); color: var(--text-mid);
             padding: 0.3rem 0.85rem; font-size: 0.72rem; letter-spacing: 0.04em;
         }
-        .mini-label {
-            font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase;
-            color: var(--text-muted); margin-bottom: 0.75rem;
-        }
 
-        /* ── ENTRY DIVIDER ── */
-        .entry { border-top: 1px solid var(--border); }
-        .entry:first-child { border-top: none; }
-
-        /* ── FULL CASE STUDY CARD (mBELLAb style) ── */
-        .cs-card { border: 1px solid var(--border); background: var(--white); }
-        .cs-head {
-            padding: 3rem;
-            border-bottom: 1px solid var(--border);
-            display: grid; grid-template-columns: 1fr auto; gap: 3rem; align-items: start;
+        /* ── PORTFOLIO ── */
+        #portfolio { background: var(--bg); }
+        .port-cats { display: flex; flex-direction: column; gap: 4rem; }
+        .port-cat-label {
+            font-size: 0.62rem; letter-spacing: 0.16em; text-transform: uppercase;
+            color: var(--text-muted); margin-bottom: 1.5rem;
         }
-        .cs-pill {
-            display: inline-block; border: 1px solid var(--border);
-            padding: 0.3rem 0.85rem; font-size: 0.72rem; letter-spacing: 0.04em;
-            margin-bottom: 1.25rem;
+        .port-list { border-top: 1px solid var(--border); }
+        .port-item { border-bottom: 1px solid var(--border); }
+        .port-header {
+            padding: 1.4rem 0;
+            display: flex; align-items: center; gap: 1.5rem;
+            cursor: pointer;
         }
-        .cs-head h3 {
-            font-size: 1.9rem; font-weight: 400;
-            margin-bottom: 0.75rem; max-width: 520px;
+        .port-header:hover .port-name { color: var(--accent); }
+        .port-name { font-weight: 500; font-size: 0.95rem; color: var(--text); transition: color 0.15s; }
+        .port-tagline { font-size: 0.78rem; color: var(--text-muted); margin-top: 0.15rem; }
+        .port-logo-wrap {
+            width: 52px; height: 36px; flex-shrink: 0;
+            display: flex; align-items: center; justify-content: flex-start;
         }
-        .cs-head-sub {
-            font-size: 0.9rem; color: var(--text-mid); line-height: 1.8; max-width: 480px;
+        .port-logo-wrap img { max-height: 32px; max-width: 52px; width: auto; object-fit: contain; }
+        .port-logo-wrap.dark { background: var(--bg-dark); padding: 4px 10px; width: auto; min-width: 52px; max-width: 120px; }
+        .port-logo-wrap.dark img { max-width: 96px; max-height: 28px; }
+        .port-logo-monogram {
+            width: 36px; height: 36px; background: var(--text);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.6rem; letter-spacing: 0.08em;
+            color: #fff; font-weight: 600; flex-shrink: 0;
         }
-        .cs-meta { display: flex; flex-direction: column; gap: 1.5rem; min-width: 160px; }
-        .cs-meta-label { font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.2rem; }
-        .cs-meta-value { font-size: 0.875rem; color: var(--text); }
-        .cs-body { padding: 3rem; }
-        .cs-stats {
-            display: grid; grid-template-columns: repeat(3, 1fr);
-            gap: 2rem; margin-bottom: 3rem;
-            padding-bottom: 3rem; border-bottom: 1px solid var(--border);
+        .port-toggle {
+            margin-left: auto; color: var(--text-muted); font-size: 1.2rem;
+            flex-shrink: 0; transition: transform 0.2s;
+            font-family: 'Inter', sans-serif; font-weight: 300; line-height: 1;
         }
-        .cs-stat-num {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 3rem; font-weight: 400; line-height: 1;
-            margin-bottom: 0.4rem;
-        }
-        .cs-stat-label { font-size: 0.75rem; color: var(--text-muted); line-height: 1.5; }
-        .cs-built-grid {
-            display: grid; grid-template-columns: 1fr 1fr;
-            gap: 0.75rem 2rem; margin-top: 0.75rem;
-        }
-        .cs-built-item {
-            font-size: 0.82rem; color: var(--text-mid); line-height: 1.65;
-            padding-left: 1rem; position: relative;
-        }
-        .cs-built-item::before { content: '—'; position: absolute; left: 0; color: var(--accent); }
-        .cs-quote {
-            margin: 2.5rem 0;
-            padding: 2rem 2.5rem;
-            border-left: 3px solid var(--accent);
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.25rem; font-style: italic; line-height: 1.7;
-            color: var(--text-mid);
-        }
-        .cs-tech { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 2rem; }
-        .cs-toggle-btn {
-            display: flex; align-items: center; gap: 0.5rem;
-            border: 1px solid var(--border);
-            background: none; cursor: pointer;
-            padding: 0.65rem 1.25rem;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase;
-            color: var(--text-muted); transition: all 0.15s;
-            margin-top: 2rem;
-        }
-        .cs-toggle-btn:hover { color: var(--text); border-color: var(--text); }
-        .cs-toggle-btn svg { transition: transform 0.2s; }
-        .cs-full { display: none; }
-        .cs-full.open { display: block; }
-        .cs-divider { border-top: 1px solid var(--border); margin: 2.5rem 0; }
-
-        /* ── COMPACT ENTRY CARD ── */
-        .entry-card { border: 1px solid var(--border); background: var(--white); }
-        .entry-head {
-            padding: 2.75rem 3rem;
-            border-bottom: 1px solid var(--border);
-            display: grid; grid-template-columns: 1fr auto; gap: 3rem; align-items: start;
-        }
-        .entry-head h3 { font-size: 1.75rem; font-weight: 400; margin-bottom: 0.6rem; max-width: 480px; }
-        .entry-head-sub { font-size: 0.875rem; color: var(--text-mid); line-height: 1.8; max-width: 440px; }
-        .entry-body { padding: 2.75rem 3rem; }
-        .entry-quote {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.2rem; font-style: italic; line-height: 1.7;
-            color: var(--text-mid); margin-bottom: 2.25rem;
-            border-left: 3px solid var(--accent);
-            padding: 1.5rem 2rem;
-        }
-        .entry-attribution {
-            font-size: 0.75rem; color: var(--text-muted);
-            letter-spacing: 0.04em; margin-top: 0.6rem;
-            font-style: normal;
-        }
-        .entry-bullets { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.5rem; }
-        .entry-bullets li {
-            font-size: 0.85rem; color: var(--text-mid); line-height: 1.7;
-            padding-left: 1rem; position: relative;
-        }
-        .entry-bullets li::before { content: '—'; position: absolute; left: 0; color: var(--accent); }
-        .entry-toggle-btn {
-            display: flex; align-items: center; gap: 0.5rem;
-            border: 1px solid var(--border);
-            background: none; cursor: pointer;
-            padding: 0.65rem 1.25rem;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase;
-            color: var(--text-muted); transition: all 0.15s;
-            margin-top: 2rem;
-        }
-        .entry-toggle-btn:hover { color: var(--text); border-color: var(--text); }
-        .entry-toggle-btn svg { transition: transform 0.2s; }
-        .entry-full { display: none; padding-top: 2.5rem; border-top: 1px solid var(--border); margin-top: 2.5rem; }
-        .entry-full.open { display: block; }
+        .port-item.open .port-toggle { transform: rotate(45deg); }
+        .port-body { display: none; padding-bottom: 2.25rem; padding-left: calc(52px + 1.5rem); }
+        .port-item.open .port-body { display: block; }
+        .port-desc { font-size: 0.9rem; line-height: 1.85; color: var(--text-mid); max-width: 640px; }
+        .port-desc a { color: var(--text); border-bottom: 1px solid var(--border); transition: border-color 0.15s; }
+        .port-desc a:hover { border-color: var(--text); }
+        .port-chips { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 1.25rem; }
+        .port-screenshots { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem; max-width: 760px; }
+        .port-screenshots img { width: 100%; display: block; border: 1px solid var(--border); }
 
         /* ── FOOTER ── */
         footer {
-            background: var(--bg-dark); color: var(--white);
-            padding: 3rem 2rem;
+            background: var(--bg-dark); border-top: 1px solid #111;
+            padding: 1.75rem 2rem;
         }
         .footer-inner {
             max-width: 1200px; margin: 0 auto;
-            display: flex; align-items: center; justify-content: space-between;
+            display: flex; align-items: center; justify-content: space-between; gap: 1rem;
         }
-        .footer-copy { font-size: 0.72rem; color: #666; }
+        .footer-copy { font-size: 0.7rem; color: #666; }
+        .footer-links { display: flex; gap: 1.75rem; }
+        .footer-links a { font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: #666; transition: color 0.2s; }
+        .footer-links a:hover { color: #aaa; }
+
+        /* ── LIGHTBOX ── */
+        .lightbox {
+            display: none; position: fixed; inset: 0; z-index: 1000;
+            background: rgba(0,0,0,0.88); align-items: center; justify-content: center;
+            padding: 2rem; cursor: zoom-out;
+        }
+        .lightbox.open { display: flex; }
+        .lightbox img {
+            max-width: 92vw; max-height: 88vh;
+            object-fit: contain; cursor: default;
+            box-shadow: 0 8px 60px rgba(0,0,0,0.6);
+        }
+        .lightbox-close {
+            position: fixed; top: 1.25rem; right: 1.5rem;
+            color: #fff; font-size: 1.75rem; font-weight: 300;
+            line-height: 1; cursor: pointer; opacity: 0.7;
+            font-family: 'Inter', sans-serif; transition: opacity 0.15s;
+        }
+        .lightbox-close:hover { opacity: 1; }
+        .port-screenshots img { cursor: zoom-in; }
 
         /* ── REVEAL ── */
-        .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
-        .reveal.visible { opacity: 1; transform: none; }
+        .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.65s ease, transform 0.65s ease; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
 
-        /* ── RESPONSIVE ── */
-        @media (max-width: 768px) {
-            .cs-head { grid-template-columns: 1fr; gap: 2rem; }
-            .cs-stats { grid-template-columns: 1fr 1fr; }
-            .cs-built-grid { grid-template-columns: 1fr; }
-            .entry-head { grid-template-columns: 1fr; gap: 1.5rem; }
-            .cs-body { padding: 2rem 1.5rem; }
-            .cs-head { padding: 2rem 1.5rem; }
-            .entry-body { padding: 2rem 1.5rem; }
-            .entry-head { padding: 2rem 1.5rem; }
+        /* ── MOBILE ── */
+        @media (max-width: 780px) {
+            .nav-links { display: none; }
+            .nav-toggle { display: flex; }
+            .nav-links.open {
+                display: flex; flex-direction: column;
+                position: absolute; top: 60px; left: 0; right: 0;
+                background: var(--bg); border-bottom: 1px solid var(--border);
+                padding: 1.5rem; gap: 1.25rem; z-index: 99;
+            }
+            section { padding: 4rem 1.5rem; }
+            .port-screenshots { grid-template-columns: 1fr; }
+            .port-body { padding-left: 0; }
+            .footer-inner { flex-direction: column; text-align: center; }
         }
     </style>
 </head>
 <body>
 
-<!-- ══ TOP BAR ══ -->
-<header class="topbar">
-    <div class="topbar-inner">
-        <a href="index.html">
-            <img src="winick-logo.png" alt="WINICK" class="topbar-logo">
+<!-- ══ NAV ══ -->
+<nav>
+    <div class="nav-inner">
+        <a href="/" class="logo">
+            <div class="logo-lockup">
+                <img src="winick-logo.png" alt="WINICK" class="logo-img">
+                <span class="logo-sub">Business Operations <span class="logo-pipe">|</span> Strategy <span class="logo-pipe">|</span> Execution</span>
+            </div>
         </a>
-        <a href="index.html" class="topbar-back">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
-            winick.co.uk
-        </a>
-    </div>
-</header>
-
-<!-- ══ PAGE HERO ══ -->
-<div class="page-hero">
-    <div class="page-hero-inner">
-        <div class="section-label">Portfolio</div>
-        <h1>Work that moves the needle.</h1>
-        <p>A selection of engagements from 2023 to present. Some clients are named with permission; others are described by sector and engagement type.</p>
-    </div>
-</div>
-
-<!-- ══ ENTRY 1: mBELLAb Power Solutions (Full Case Study) ══ -->
-<div class="entry">
-    <div class="section-inner">
-        <div class="cs-card reveal">
-            <div class="cs-head">
-                <div>
-                    <img src="mbella-logo.png" alt="mBELLAb Power Solutions" style="height:52px;width:auto;display:block;margin-bottom:1.75rem;">
-                    <span class="cs-pill">AI-Assisted Development</span>
-                    <h3>Building an Operations Portal Without a Development Team</h3>
-                    <p class="cs-head-sub">How a UAE engineering business replaced spreadsheets and email threads with a custom-built operations hub, using AI as the development engine.</p>
-                </div>
-                <div class="cs-meta">
-                    <div>
-                        <div class="cs-meta-label">Client</div>
-                        <div class="cs-meta-value">mBELLAb Power Solutions</div>
-                    </div>
-                    <div>
-                        <div class="cs-meta-label">Sector</div>
-                        <div class="cs-meta-value">Engineering · UAE</div>
-                    </div>
-                    <div>
-                        <div class="cs-meta-label">Timeline</div>
-                        <div class="cs-meta-value">Weeks, not months</div>
-                    </div>
-                    <div>
-                        <div class="cs-meta-label">External dev cost</div>
-                        <div class="cs-meta-value">Zero</div>
-                    </div>
-                </div>
-            </div>
-            <div class="cs-body">
-                <div class="cs-stats">
-                    <div>
-                        <div class="cs-stat-num">3</div>
-                        <div class="cs-stat-label">Companies unified on one platform</div>
-                    </div>
-                    <div>
-                        <div class="cs-stat-num">&lt;60s</div>
-                        <div class="cs-stat-label">Quote letter generated from browser</div>
-                    </div>
-                    <div>
-                        <div class="cs-stat-num">Zero</div>
-                        <div class="cs-stat-label">External development cost</div>
-                    </div>
-                </div>
-
-                <div style="margin-bottom:2.5rem;">
-                    <div class="mini-label">The Problem</div>
-                    <p style="font-size:0.95rem;line-height:1.9;color:var(--text-mid);">mBELLAb PS needed proper pipeline visibility. Opportunities were tracked inconsistently, quotes were filed loosely in Word documents, and activity notes lived in people's heads. Across three sister companies sharing founders and staff, compliance obligations like trade licences, visas, and insurance renewals were falling through the cracks.</p>
-                </div>
-
-                <div>
-                    <div class="mini-label">What Was Built</div>
-                    <div class="cs-built-grid">
-                        <div class="cs-built-item">Pipeline tracking with live KPIs, deadline alerts, and activity logging</div>
-                        <div class="cs-built-item">Quote letter generation: branded Word doc in under 60 seconds</div>
-                        <div class="cs-built-item">Cross-entity renewals register (licences, memberships, insurance)</div>
-                        <div class="cs-built-item">Employee document tracker with passport expiry alerts</div>
-                        <div class="cs-built-item">Supplier & contractor directories linked to SharePoint</div>
-                        <div class="cs-built-item">Role-based access: engineers see what they need, admins see everything</div>
-                        <div class="cs-built-item">ISO quality objectives linked to specific opportunities</div>
-                        <div class="cs-built-item">Live dashboard with finance tab and recent activity feed</div>
-                    </div>
-                </div>
-
-                <div class="cs-quote">
-                    "The technology lowers the barrier to entry dramatically. The strategic lens is what makes it useful. Understanding the business, identifying the friction, scoping the right solution. That judgement is not something AI provides on its own."
-                </div>
-
-                <button class="cs-toggle-btn" id="csBtn1" onclick="toggleEntry('cs1', 'csBtn1', this)">
-                    <span>Read the full case study</span>
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-                </button>
-
-                <div class="cs-full" id="cs1">
-                    <div class="cs-divider"></div>
-                    <div class="mini-label">The Business</div>
-                    <p style="font-size:0.95rem;line-height:1.9;color:var(--text-mid);margin-bottom:1.25rem;">mBELLAb Power Solutions is a specialist engineering and project management firm operating across the UAE, managing high-value tenders and subcontracting work in the power distribution sector. Projects span RTU supply and commissioning, ADMS integration, and infrastructure delivery for clients including TAQA Distribution and Abu Dhabi Municipality.</p>
-                    <p style="font-size:0.95rem;line-height:1.9;color:var(--text-mid);">The business is founder-led, with two principals who also run two sister companies: mBELLAb Business Services & Administration, a management consultancy, and Sentinel Capital Ltd (SENCAP), a DFSA-regulated investment advisory firm based in DIFC, Dubai. Three businesses, two founders, a lean team, and a lot of moving parts.</p>
-                    <div class="cs-divider"></div>
-                    <div class="mini-label">The Approach</div>
-                    <p style="font-size:0.95rem;line-height:1.9;color:var(--text-mid);margin-bottom:1.25rem;">Rather than engaging a development agency or waiting for a budget cycle, the decision was made to build something immediately using AI-assisted development. Working iteratively with Claude (Anthropic), a fully functional web-based operations portal was designed, built, and refined without writing a single line of code manually.</p>
-                    <p style="font-size:0.95rem;line-height:1.9;color:var(--text-mid);">The approach: describe the problem and what good looks like; iterate rapidly on working prototypes; test in the real environment; report what was broken or needed changing; repeat. The result is a production-ready, browser-based application connected to Supabase as its data backend, secured through a Cloudflare Worker proxy, with role-based login. No installation, no app store, no IT department.</p>
-                    <div class="cs-divider"></div>
-                    <div class="mini-label">What This Demonstrates</div>
-                    <p style="font-size:0.95rem;line-height:1.9;color:var(--text-mid);">Most growing businesses run on operational infrastructure that was never really designed. It accumulated. Spreadsheets became the system of record. Email became the project management tool. Institutional knowledge lives in one or two people's heads. The cost of fixing this used to be high enough that most businesses just lived with it. That's no longer true.</p>
-                    <div class="cs-tech">
-                        <span class="chip">Claude Code (Anthropic)</span>
-                        <span class="chip">Supabase</span>
-                        <span class="chip">Cloudflare Workers</span>
-                        <span class="chip">Vercel</span>
-                        <span class="chip">HTML / CSS / JS</span>
-                        <span class="chip">Role-based Auth</span>
-                    </div>
-                </div>
-            </div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/#about">About</a></li>
+            <li><a href="/#services">Services</a></li>
+            <li><a href="/#ai">AI &amp; Systems</a></li>
+            <li><a href="portfolio.html" class="active">Portfolio</a></li>
+            <li><a href="/#testimonials">Testimonials</a></li>
+            <li><a href="/#contact" class="nav-cta">Let's Talk</a></li>
+        </ul>
+        <div class="nav-toggle" id="navToggle" onclick="toggleNav()">
+            <span></span><span></span><span></span>
         </div>
     </div>
-</div>
+</nav>
 
-<!-- ══ ENTRY 2: Ohere Technologies ══ -->
-<div class="entry" style="background: var(--bg-alt);">
+<!-- ══ PORTFOLIO ══ -->
+<section id="portfolio">
     <div class="section-inner">
-        <div class="entry-card reveal">
-            <div class="entry-head">
-                <div>
-                    <span class="cs-pill">Operations & Accountability</span>
-                    <h3>Bringing Structure and Follow-Through to a Growing Tech Business</h3>
-                    <p class="entry-head-sub">Embedding operational discipline into a founder-led technology company: clearer priorities, tighter follow-through, and a business that moves without everything running through the CEO.</p>
-                </div>
-                <div class="cs-meta">
-                    <div>
-                        <div class="cs-meta-label">Client</div>
-                        <div class="cs-meta-value">Ohere Technologies Ltd</div>
+        <div class="section-header">
+            <div class="section-label">Portfolio</div>
+            <h2 class="section-title">Real work. Real clients.</h2>
+        </div>
+
+        <div class="port-cats">
+
+            <!-- AI / Built with Claude Code -->
+            <div class="port-cat">
+                <div class="port-cat-label">Built with Claude Code</div>
+                <div class="port-list">
+
+                    <div class="port-item" onclick="togglePort(this)">
+                        <div class="port-header">
+                            <div class="port-logo-wrap"><img src="portfolio/ids-logo.webp" alt="IDS-GCC"></div>
+                            <div>
+                                <div class="port-name">IDS Operations Portal</div>
+                                <div class="port-tagline">IDS-GCC &middot; Internal operations system</div>
+                            </div>
+                            <span class="port-toggle">+</span>
+                        </div>
+                        <div class="port-body">
+                            <p class="port-desc">IDS-GCC is a UAE engineering contractor in the power distribution sector. I designed and built their entire internal operations portal from scratch: project tracking, bid and opportunity management, automated tender monitoring (scraping two government procurement portals twice daily), a finance dashboard, employee and leave management, and a 1,100-contact searchable directory. Built and deployed in under six weeks.</p>
+                            <div class="port-chips">
+                                <span class="chip">Next.js</span>
+                                <span class="chip">Supabase</span>
+                                <span class="chip">Cloudflare Worker</span>
+                                <span class="chip">Vercel</span>
+                                <span class="chip">Claude Code</span>
+                            </div>
+                            <div class="port-screenshots">
+                                <img src="portfolio/ids-home.png" alt="IDS Portal home screen" onclick="openLightbox(this.src,this.alt);event.stopPropagation()">
+                                <img src="portfolio/ids-tenders.png" alt="IDS Tender Monitoring" onclick="openLightbox(this.src,this.alt);event.stopPropagation()">
+                            </div>
+                        </div>
                     </div>
-                    <div>
-                        <div class="cs-meta-label">Sector</div>
-                        <div class="cs-meta-value">Technology</div>
+
+                    <div class="port-item" onclick="togglePort(this)">
+                        <div class="port-header">
+                            <div class="port-logo-wrap"><img src="portfolio/mbellab-logo.png" alt="mBELLAb"></div>
+                            <div>
+                                <div class="port-name">mBELLAb Operations Portal</div>
+                                <div class="port-tagline">mBELLAb Power Solutions &middot; Quotation and payment management</div>
+                            </div>
+                            <span class="port-toggle">+</span>
+                        </div>
+                        <div class="port-body">
+                            <p class="port-desc">An internal portal replacing manual spreadsheet processes for a UAE engineering firm. Manages quotation creation and tracking, payment term visibility, and document generation. Deployed to production and used daily. <a href="index.html#case-study">Read the full case study &rarr;</a></p>
+                            <div class="port-chips">
+                                <span class="chip">HTML / CSS / JS</span>
+                                <span class="chip">Cloudflare Worker</span>
+                                <span class="chip">Supabase</span>
+                                <span class="chip">Claude Code</span>
+                            </div>
+                            <div class="port-screenshots">
+                                <img src="portfolio/MB.png" alt="mBELLAb Operations Portal" onclick="openLightbox(this.src,this.alt);event.stopPropagation()">
+                            </div>
+                        </div>
                     </div>
-                    <div>
-                        <div class="cs-meta-label">Type</div>
-                        <div class="cs-meta-value">Fractional Operator</div>
+
+                    <div class="port-item" onclick="togglePort(this)">
+                        <div class="port-header">
+                            <div class="port-logo-wrap"><img src="portfolio/mc-logo.jpg" alt="The MORECREATIVE"></div>
+                            <div>
+                                <div class="port-name">The MORECREATIVE</div>
+                                <div class="port-tagline">The MORECREATIVE &middot; Agency operating system</div>
+                            </div>
+                            <span class="port-toggle">+</span>
+                        </div>
+                        <div class="port-body">
+                            <p class="port-desc">A bespoke business operating system for a Dubai-based creative talent agency, built to replace over fifteen spreadsheets. Manages 356 talents and 273 brands across a connected system of projects, opportunities, meetings, finance, and team earnings. The founder can see everything happening in the business from a single screen.</p>
+                            <div class="port-chips">
+                                <span class="chip">Next.js</span>
+                                <span class="chip">Supabase</span>
+                                <span class="chip">Vercel</span>
+                                <span class="chip">Claude Code</span>
+                            </div>
+                            <div class="port-screenshots">
+                                <img src="portfolio/MC1.png" alt="The MORECREATIVE dashboard" onclick="openLightbox(this.src,this.alt);event.stopPropagation()">
+                            </div>
+                        </div>
                     </div>
+
+                    <div class="port-item" onclick="togglePort(this)">
+                        <div class="port-header">
+                            <div class="port-logo-wrap"><img src="portfolio/cambourne-logo.png" alt="Cambourne &amp; Alconbury"></div>
+                            <div>
+                                <div class="port-name">Cambourne &amp; Alconbury Home Maintenance</div>
+                                <div class="port-tagline">Home maintenance contractor &middot; Marketing website</div>
+                            </div>
+                            <span class="port-toggle">+</span>
+                        </div>
+                        <div class="port-body">
+                            <p class="port-desc">A clean marketing website for a UK-based home maintenance and property improvement contractor. Static, zero ongoing hosting cost, deployed to Cloudflare Pages. Designed to convert visitors into enquiries across kitchens, carpentry, flooring, and garden work.</p>
+                            <div class="port-chips">
+                                <span class="chip">HTML / CSS</span>
+                                <span class="chip">Cloudflare Pages</span>
+                                <span class="chip">Claude Code</span>
+                            </div>
+                            <div class="port-screenshots">
+                                <img src="portfolio/Cam1.png" alt="Cambourne project 1" onclick="openLightbox(this.src,this.alt);event.stopPropagation()">
+                                <img src="portfolio/Cam2.png" alt="Cambourne project 2" onclick="openLightbox(this.src,this.alt);event.stopPropagation()">
+                                <img src="portfolio/Cam3.png" alt="Cambourne project 3" onclick="openLightbox(this.src,this.alt);event.stopPropagation()">
+                                <img src="portfolio/Cam4.png" alt="Cambourne project 4" onclick="openLightbox(this.src,this.alt);event.stopPropagation()">
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
-            <div class="entry-body">
-                <div class="entry-quote">
-                    "Paul gave the business greater structure, focus, and follow-through, helping me prioritise better and ensure momentum."
-                    <div class="entry-attribution">Ugo Chukwu, CEO · Ohere Technologies Ltd</div>
+
+            <!-- Chief of Staff / Executive Support -->
+            <div class="port-cat">
+                <div class="port-cat-label">Chief of Staff / Executive Support</div>
+                <div class="port-list">
+
+                    <div class="port-item" onclick="togglePort(this)">
+                        <div class="port-header">
+                            <div class="port-logo-wrap"><img src="portfolio/mbellab-logo.png" alt="mBELLAb"></div>
+                            <div>
+                                <div class="port-name">mBELLAb Power Solutions</div>
+                                <div class="port-tagline">Fractional Chief of Staff</div>
+                            </div>
+                            <span class="port-toggle">+</span>
+                        </div>
+                        <div class="port-body">
+                            <p class="port-desc">Embedded as fractional Chief of Staff to the Managing Director of a UAE engineering contractor in the power distribution sector. Responsible for internal operations, supplier coordination, tender pipeline management, and building the operational systems that allow the business to scale without adding headcount.</p>
+                        </div>
+                    </div>
+
+                    <div class="port-item" onclick="togglePort(this)">
+                        <div class="port-header">
+                            <div class="port-logo-wrap"><img src="portfolio/mc-logo.jpg" alt="The MORECREATIVE"></div>
+                            <div>
+                                <div class="port-name">The MORECREATIVE</div>
+                                <div class="port-tagline">Fractional Chief of Staff</div>
+                            </div>
+                            <span class="port-toggle">+</span>
+                        </div>
+                        <div class="port-body">
+                            <p class="port-desc">Supporting the founder of a Dubai-based creative talent agency across business operations, strategy, and stakeholder management. Helped build the operational infrastructure to manage a growing roster and pipeline without losing the personal relationships at the core of the business.</p>
+                        </div>
+                    </div>
+
+                    <div class="port-item" onclick="togglePort(this)">
+                        <div class="port-header">
+                            <div class="port-logo-wrap"><img src="portfolio/ohere-logo.png" alt="Ohere Technologies"></div>
+                            <div>
+                                <div class="port-name">Ohere Technologies</div>
+                                <div class="port-tagline">Strategy &amp; Executive Support &middot; Nigeria</div>
+                            </div>
+                            <span class="port-toggle">+</span>
+                        </div>
+                        <div class="port-body">
+                            <p class="port-desc">Supporting the founding team of a Nigerian fintech startup building credit infrastructure for underserved Nigerians. Work spans investor materials, strategic positioning, pitch preparation, and helping the team communicate a complex, long-term vision clearly to the right audiences.</p>
+                        </div>
+                    </div>
+
+                    <div class="port-item" onclick="togglePort(this)">
+                        <div class="port-header">
+                            <div class="port-logo-monogram">PL</div>
+                            <div style="margin-left:1.5rem">
+                                <div class="port-name">ProsperityLab</div>
+                                <div class="port-tagline">Strategy &amp; Executive Support &middot; DIFC Innovation Hub, Dubai</div>
+                            </div>
+                            <span class="port-toggle">+</span>
+                        </div>
+                        <div class="port-body">
+                            <p class="port-desc">Supporting the leadership team of a Dubai-based wealth technology R&amp;D lab conducting original research into financial decision-making and building software products. Work spans strategy, investor relations, and translating complex research into clear commercial narratives.</p>
+                        </div>
+                    </div>
+
+                    <div class="port-item" onclick="togglePort(this)">
+                        <div class="port-header">
+                            <div class="port-logo-wrap"><img src="portfolio/heed-logo.svg" alt="Heed"></div>
+                            <div>
+                                <div class="port-name">Heed</div>
+                                <div class="port-tagline">Executive Support &middot; Internal communications platform</div>
+                            </div>
+                            <span class="port-toggle">+</span>
+                        </div>
+                        <div class="port-body">
+                            <p class="port-desc">Supporting the team at Heed, an all-in-one internal communications platform built to connect and engage employees across desktop, mobile, and digital signage channels.</p>
+                        </div>
+                    </div>
+
+                    <div class="port-item" onclick="togglePort(this)">
+                        <div class="port-header">
+                            <div class="port-logo-wrap"><img src="portfolio/headstarter-logo.png" alt="HeadStarter"></div>
+                            <div>
+                                <div class="port-name">HeadStarter</div>
+                                <div class="port-tagline">Executive Support &middot; Hedera-based crypto launchpad</div>
+                            </div>
+                            <span class="port-toggle">+</span>
+                        </div>
+                        <div class="port-body">
+                            <p class="port-desc">Supporting the team at HeadStarter, a crypto launchpad built on the Hedera network, with operational and strategic support.</p>
+                        </div>
+                    </div>
+
                 </div>
-                <div class="mini-label">What Was Done</div>
-                <ul class="entry-bullets">
-                    <li>Established weekly operating cadences: priorities set, blockers surfaced, decisions made</li>
-                    <li>Built task tracking and accountability systems so the CEO had visibility without being in everything</li>
-                    <li>Identified and cleared the operational bottlenecks that were slowing execution</li>
-                    <li>Created reporting structures that gave the leadership team line of sight on progress</li>
-                </ul>
-                <!-- Add additional detail here: timeline, specific outcomes, tools used -->
             </div>
+
         </div>
     </div>
-</div>
+</section>
 
-<!-- ══ ENTRY 3: ThinkingWealth ══ -->
-<div class="entry">
-    <div class="section-inner">
-        <div class="entry-card reveal">
-            <div class="entry-head">
-                <div>
-                    <span class="cs-pill">Founder Leverage</span>
-                    <h3>Giving a Founder CEO the Headspace to Think Strategically</h3>
-                    <p class="entry-head-sub">Embedding as a fractional operator to turn priorities into action, free the founder from day-to-day operational weight, and create space for bigger-picture strategy.</p>
-                </div>
-                <div class="cs-meta">
-                    <div>
-                        <div class="cs-meta-label">Client</div>
-                        <div class="cs-meta-value">ThinkingWealth</div>
-                    </div>
-                    <div>
-                        <div class="cs-meta-label">Sector</div>
-                        <div class="cs-meta-value">Fintech / Wealth</div>
-                    </div>
-                    <div>
-                        <div class="cs-meta-label">Type</div>
-                        <div class="cs-meta-value">Fractional Operator</div>
-                    </div>
-                </div>
-            </div>
-            <div class="entry-body">
-                <div class="entry-quote">
-                    "Paul helped turn priorities into action and gave me headspace to concentrate on bigger picture strategy."
-                    <div class="entry-attribution">Arvind Krishnan, Founder & CEO · ThinkingWealth</div>
-                </div>
-                <div class="mini-label">What Was Done</div>
-                <ul class="entry-bullets">
-                    <li>Translated strategic priorities into operational plans with clear owners and deadlines</li>
-                    <li>Managed day-to-day operational decisions to free the founder from constant context-switching</li>
-                    <li>Built systems so progress was visible without the CEO needing to be in every meeting</li>
-                    <li>Created operational rhythm: weekly priorities, standups, and async updates</li>
-                </ul>
-                <!-- Add additional detail here: timeline, specific outcomes, tools used -->
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- ══ ENTRY 4: HeadStarter.org ══ -->
-<div class="entry" style="background: var(--bg-alt);">
-    <div class="section-inner">
-        <div class="entry-card reveal">
-            <div class="entry-head">
-                <div>
-                    <span class="cs-pill">Special Projects</span>
-                    <h3>Investor Communications During a Critical Period</h3>
-                    <p class="entry-head-sub">Bringing order and discipline to investor-facing communications at a pivotal moment in the business, ensuring the right message reached the right people clearly and on time.</p>
-                </div>
-                <div class="cs-meta">
-                    <div>
-                        <div class="cs-meta-label">Client</div>
-                        <div class="cs-meta-value">HeadStarter.org</div>
-                    </div>
-                    <div>
-                        <div class="cs-meta-label">Sector</div>
-                        <div class="cs-meta-value">Tech / AI</div>
-                    </div>
-                    <div>
-                        <div class="cs-meta-label">Type</div>
-                        <div class="cs-meta-value">Special Project</div>
-                    </div>
-                </div>
-            </div>
-            <div class="entry-body">
-                <div class="entry-quote">
-                    "He brought order and focus to our investor communications during a critical period."
-                    <div class="entry-attribution">Tudor Holotescu, Founder · HeadStarter.org</div>
-                </div>
-                <div class="mini-label">What Was Done</div>
-                <ul class="entry-bullets">
-                    <li>Structured and sequenced investor communications for a time-sensitive period</li>
-                    <li>Drafted and refined messaging that was clear, accurate, and investor-appropriate</li>
-                    <li>Managed the cadence of outreach so nothing slipped and no investor was left without an update</li>
-                    <li>Brought operational focus to a situation where speed and precision both mattered</li>
-                </ul>
-                <!-- Add additional detail here: timeline, fundraising stage, specific outcomes -->
-            </div>
-        </div>
-    </div>
+<!-- ══ LIGHTBOX ══ -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+    <img id="lightboxImg" src="" alt="" onclick="event.stopPropagation()">
 </div>
 
 <!-- ══ FOOTER ══ -->
 <footer>
     <div class="footer-inner">
-        <img src="winick-logo-white.png" alt="WINICK" style="height:32px;width:auto;">
+        <div class="footer-logo">
+            <img src="winick-logo-white.png" alt="WINICK" style="height:32px;width:auto;display:block;">
+        </div>
         <div class="footer-copy">© 2026 Winick · Dubai, UAE</div>
+        <div class="footer-links">
+            <a href="/#about">About</a>
+            <a href="/#services">Services</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="/#contact">Contact</a>
+        </div>
     </div>
 </footer>
 
 <script>
-    function toggleEntry(id, btnId, btn) {
-        const panel = document.getElementById(id);
-        const isOpen = panel.classList.toggle('open');
-        const span = btn.querySelector('span');
-        const icon = btn.querySelector('svg');
-        if (span) span.textContent = isOpen ? 'Collapse' : 'Read the full case study';
-        if (icon) icon.style.transform = isOpen ? 'rotate(180deg)' : '';
+    function toggleNav() {
+        document.getElementById('navLinks').classList.toggle('open');
     }
+
+    function togglePort(el) {
+        el.classList.toggle('open');
+    }
+
+    function openLightbox(src, alt) {
+        const lb = document.getElementById('lightbox');
+        const img = document.getElementById('lightboxImg');
+        img.src = src;
+        img.alt = alt;
+        lb.classList.add('open');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+        document.getElementById('lightbox').classList.remove('open');
+        document.body.style.overflow = '';
+    }
+
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
 
     const observer = new IntersectionObserver(entries => {
         entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
